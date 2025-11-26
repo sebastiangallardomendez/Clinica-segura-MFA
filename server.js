@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
-
+app.use(express.static(__dirname));
 // Base de datos temporal
 let users = {}; 
 
