@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hash Techie Official</title>
+    <link rel="stylesheet" href="index.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <!-- barra superior -->
+   <header class="header">
+    <nav class="navbar">
+        <a href="./inicio.html">Inicio</a>
+        <a href="#">Sobre nosotros</a>
+          <a href="#">Servicios</a>
+          <a href="#">Productos</a>
+          <a href="#">Ayuda</a>
+    </nav>
+    <form action="" class="search-bar">
+       <input type="text" placeholder="Search...">
+       <button><i class='bx bx-search'></i></button>
+    </form>
+   </header>
+    <!-- Creamos el login -->
+    <div class="background"></div>
+    <div class="container">
+        <div class="item">
+            <h2 class="logo"><i class='bx bxl-xing'></i></h2>
+            <div class="text-item">
+                <h2>Clinica, <br><span>
+                    Proyecto ciberseguridad
+                </span></h2>
+                <p>Registro basado en modelo MFA de autentificacion</p>
+                <div class="social-icon">
+                    <a href="#"><i class='bx bxl-facebook'></i></a>
+                    <a href="#"><i class='bx bxl-twitter'></i></a>
+                    <a href="#"><i class='bx bxl-youtube'></i></a>
+                    <a href="#"><i class='bx bxl-instagram'></i></a>
+                    <a href="#"><i class='bx bxl-linkedin'></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="login-section">
+            <div class="form-box login">
+                <form action="">
+                    <h2>Mi usuario</h2>
+                    <div class="input-box">
+                        <span class="icon"><i class='bx bxs-envelope'></i></span>
+                        <input type="email" required placeholder=" ">
+                        <label >Email</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><i class='bx bxs-lock-alt' ></i></span>
+                        <input type="password" required>
+                        <label>Password</label>
+                    </div>
+                    <div class="remember-password">
+                        <label for=""><input type="checkbox">Remember Me</label>
+                        <a href="#">Olvide mi contrasena</a>
+                    </div>
+                    <button class="btn">Iniciar sesion</button>
+                    <div class="create-account">
+                        <p>Crear nueva cuenta <a href="#" class="register-link">Registro</a></p>
+                    </div>
+                </form>
+            </div>
+            <div class="form-box register">
+                <form action="">
+
+                    <h2>Registro</h2>
+
+                    <div class="input-box">
+                        <span class="icon"><i class='bx bxs-user'></i></span>
+                        <input type="text" required>
+                        <label >Nombre Completo</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><i class='bx bxs-envelope'></i></span>
+                        <input type="email" required placeholder=" ">
+                        <label >Email</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><i class='bx bxs-lock-alt' ></i></span>
+                        <input type="password" required>
+                        <label>Contrasena</label>
+                    </div>
+                    <div class="remember-password">
+                        <label for=""><input type="checkbox">Acepto los terminos</label>
+                    </div>
+                    <button class="btn">Registrar</button>
+                    <div class="create-account">
+                        <p>Poseo una cuenta <a href="#" class="login-link">Iniciar sesion</a></p>
+                    </div>
+                </form>
+            </div>
+            <div class="form-box verify" style="display: none; transform: translateX(430px);">
+    <form id="verifyForm">
+        <h2>Verificación MFA</h2>
+        <div class="input-box">
+            <span class="icon"><i class='bx bxs-key'></i></span>
+            <input type="text" id="otpCode" required>
+            <label>Código de 6 dígitos</label>
+        </div>
+        <button type="submit" class="btn">Verificar Identidad</button>
+    </form>
+</div>
+<div class="form-box verify-login" style="display: none; transform: translateX(0px);">
+    <form id="loginVerifyForm">
+        <h2>Seguridad 2FA</h2>
+        <p style="text-align: center; margin-bottom: 20px;">Verificación de dos pasos requerida</p>
+        <div class="input-box">
+            <span class="icon"><i class='bx bxs-lock-alt'></i></span>
+            <input type="text" id="loginOtpCode" required>
+            <label>Código de acceso</label>
+        </div>
+        <button type="submit" class="btn">Confirmar Acceso</button>
+    </form>
+</div>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
