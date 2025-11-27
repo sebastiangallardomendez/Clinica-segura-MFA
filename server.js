@@ -14,8 +14,8 @@ let users = {};
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'pruebaciberseguridad.doctor@gmail.com', // <--- TU CORREO
-        pass: 'fzum ywvx wjsf kzpa'  // <--- TU CONTRASEÑA DE APLICACIÓN
+        user: 'pruebaciberseguridad.doctor@gmail.com', // CORREO de prueba
+        pass: 'fzum ywvx wjsf kzpa'  // CONTRASEÑA DE APLICACIÓN ENTREGADA POR GOOGLE
     }
 });
 
@@ -30,7 +30,7 @@ app.post('/register', (req, res) => {
         verificationCode: code, 
         verified: false,
         loginAttempts: 0,  // Intentos de contraseña fallidos
-        mfaAttempts: 0,    // NUEVO: Intentos de código MFA fallidos
+        mfaAttempts: 0,    // Intentos de código MFA fallidos
         isLocked: false,   
         loginCode: null    
     };
@@ -93,7 +93,13 @@ app.post('/login', (req, res) => {
 
         return res.status(401).json({ 
             message: `Contraseña incorrecta. Intento ${user.loginAttempts} de 3.` 
+
         });
+        if (user.loginAttempts === 2) {
+            return res.status(401).json({ 
+                message: '⚠️ ¡CUIDADO! Es tu último intento. Si fallas de nuevo, tu cuenta se bloqueará.' 
+            });
+        }
     }
 
     // 4. Contraseña Correcta -> Generar MFA
@@ -116,7 +122,7 @@ app.post('/login', (req, res) => {
     res.status(200).json({ message: 'Credenciales correctas. Ingresa el código enviado.', requireMFA: true });
 });
 
-// --- VERIFICAR LOGIN (Fase 2: Código MFA) ---
+// VERIFICAR LOGIN (Fase 2: Código MFA) 
 app.post('/login-verify', (req, res) => {
     const { email, code } = req.body;
     const user = users[email];
